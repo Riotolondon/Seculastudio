@@ -37,18 +37,23 @@ const Footer = () => {
 
   return (
     <footer className="relative mt-20">
-      <div className="backdrop-blur-xl bg-white/5 border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+      <div className="border-t backdrop-blur-xl bg-white/5 border-white/10">
+        <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
             {/* Brand Section */}
             <div className="lg:col-span-2">
-              <Link to="/" className="flex items-center space-x-2 group mb-4">
+              <Link to="/" className="flex items-center mb-4 space-x-2 group">
                 <div className="relative">
                   <div className="absolute inset-0 bg-[#2596be] rounded-full blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
+                  <img
+                    src="/logo_white.png"
+                    alt="Secula Studios Logo"
+                    className="relative z-10 object-contain w-auto h-8"
+                  />
                 </div>
-                <span className="text-white font-bold text-xl">Secula Studios</span>
+                {/* <span className="text-xl font-bold text-white">Secula Studios</span> */}
               </Link>
-              <p className="text-white/70 mb-6 max-w-md">
+              <p className="max-w-md mb-6 text-white/70">
                 Crafting digital experiences that matter. We bring your vision to life through innovative design and cutting-edge development.
               </p>
               
@@ -72,7 +77,7 @@ const Footer = () => {
             {/* Links Sections */}
             {Object.entries(footerLinks).map(([title, links]) => (
               <div key={title}>
-                <h3 className="text-white font-semibold mb-4">{title}</h3>
+                <h3 className="mb-4 font-semibold text-white">{title}</h3>
                 <ul className="space-y-2">
                   {links.map((link) => (
                     <li key={link.name}>
@@ -90,13 +95,13 @@ const Footer = () => {
           </div>
 
           {/* Newsletter Section */}
-          <div className="mt-12 pt-8 border-t border-white/10">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="pt-8 mt-12 border-t border-white/10">
+            <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
               <div>
-                <h3 className="text-white font-semibold mb-2">Stay Updated</h3>
-                <p className="text-white/60 text-sm">Get the latest insights and updates from our team.</p>
+                <h3 className="mb-2 font-semibold text-white">Stay Updated</h3>
+                <p className="text-sm text-white/60">Get the latest insights and updates from our team.</p>
               </div>
-              <div className="flex space-x-4 w-full md:w-auto">
+              <div className="flex w-full space-x-4 md:w-auto">
                 <input
                   type="email"
                   placeholder="Enter your email"
@@ -114,8 +119,8 @@ const Footer = () => {
           </div>
 
           {/* Bottom Section */}
-          <div className="mt-8 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-white/60 text-sm">
+          <div className="flex flex-col items-center justify-between pt-8 mt-8 space-y-4 border-t border-white/10 md:flex-row md:space-y-0">
+            <p className="text-sm text-white/60">
               © {currentYear} Secula Studios. All rights reserved.
             </p>
             <div className="flex items-center space-x-4">
@@ -127,7 +132,7 @@ const Footer = () => {
                   className="p-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white/60 hover:text-[#2596be] hover:bg-white/20 transition-all duration-300"
                   aria-label={social.label}
                 >
-                  <social.icon className="h-4 w-4" />
+                  <social.icon className="w-4 h-4" />
                 </motion.a>
               ))}
             </div>

@@ -34,18 +34,23 @@ const Navbar = () => {
           : 'backdrop-blur-sm bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
             <div className="relative">
               <div className="absolute inset-0 bg-[#2596be] rounded-full blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
+              <img
+                src="/logo_white.png"
+                alt="Secula Studios Logo"
+                className="relative z-10 object-contain w-auto h-12"
+              />
             </div>
-            <span className="text-white font-bold text-xl">Secula Studios</span>
+            {/* <span className="text-xl font-bold text-white">Secula Studios</span> */}
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="items-center hidden space-x-8 md:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -76,9 +81,9 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-colors duration-300"
+            className="p-2 text-white transition-colors duration-300 border rounded-lg md:hidden bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20"
           >
-            {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
@@ -90,7 +95,7 @@ const Navbar = () => {
           opacity: isMobileMenuOpen ? 1 : 0,
           height: isMobileMenuOpen ? 'auto' : 0,
         }}
-        className="md:hidden backdrop-blur-lg bg-black/50 border-t border-white/20 overflow-hidden"
+        className="overflow-hidden border-t md:hidden backdrop-blur-lg bg-black/50 border-white/20"
       >
         <div className="px-4 py-4 space-y-2">
           {navLinks.map((link) => (

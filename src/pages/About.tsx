@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Users, Target, Zap, Heart, Award, Globe, Code, Palette } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import GlassCard from '../components/GlassCard';
 
 const About = () => {
@@ -124,17 +125,17 @@ const About = () => {
       className="pt-24 pb-20"
     >
       {/* Hero Section */}
-      <section className="px-4 sm:px-6 lg:px-8 mb-20">
+      <section className="px-4 mb-20 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="mb-6 text-4xl font-bold text-white md:text-6xl">
               About <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2596be] to-blue-400">Secula Studios</span>
             </h1>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto">
+            <p className="max-w-3xl mx-auto text-xl text-white/70">
               We're a passionate team of designers, developers, and strategists dedicated to creating digital experiences that make a difference.
             </p>
           </motion.div>
@@ -142,9 +143,9 @@ const About = () => {
       </section>
 
       {/* Mission Section */}
-      <section className="px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="px-4 mb-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -153,8 +154,8 @@ const About = () => {
             >
               <GlassCard className="p-8">
                 <Globe className="h-12 w-12 text-[#2596be] mb-6" />
-                <h2 className="text-3xl font-bold text-white mb-6">Our Mission</h2>
-                <p className="text-white/80 text-lg mb-6">
+                <h2 className="mb-6 text-3xl font-bold text-white">Our Mission</h2>
+                <p className="mb-6 text-lg text-white/80">
                   To empower businesses of all sizes with exceptional digital solutions that drive growth, 
                   enhance user experiences, and create lasting impact in the digital landscape.
                 </p>
@@ -181,8 +182,8 @@ const About = () => {
               ].map((stat, index) => (
                 <GlassCard key={stat.label} delay={index * 0.1} className="p-6 text-center">
                   <stat.icon className="h-8 w-8 text-[#2596be] mx-auto mb-4" />
-                  <div className="text-2xl font-bold text-white mb-2">{stat.value}</div>
-                  <div className="text-white/70 text-sm">{stat.label}</div>
+                  <div className="mb-2 text-2xl font-bold text-white">{stat.value}</div>
+                  <div className="text-sm text-white/70">{stat.label}</div>
                 </GlassCard>
               ))}
             </motion.div>
@@ -191,16 +192,16 @@ const About = () => {
       </section>
 
       {/* Timeline Section */}
-      <section className="px-4 sm:px-6 lg:px-8 mb-20">
+      <section className="px-4 mb-20 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="mb-16 text-center"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Our Journey</h2>
+            <h2 className="mb-6 text-3xl font-bold text-white md:text-5xl">Our Journey</h2>
             <p className="text-xl text-white/70">
               From humble beginnings to industry recognition, here's how we've grown.
             </p>
@@ -223,7 +224,7 @@ const About = () => {
                 <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
                   <GlassCard className="p-6">
                     <div className="text-[#2596be] font-bold text-lg mb-2">{item.year}</div>
-                    <h3 className="text-xl font-semibold text-white mb-3">{item.title}</h3>
+                    <h3 className="mb-3 text-xl font-semibold text-white">{item.title}</h3>
                     <p className="text-white/70">{item.description}</p>
                   </GlassCard>
                 </div>
@@ -236,29 +237,29 @@ const About = () => {
       </section>
 
       {/* Values Section */}
-      <section className="px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="max-w-7xl mx-auto">
+      <section className="px-4 mb-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="mb-16 text-center"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Our Values</h2>
+            <h2 className="mb-6 text-3xl font-bold text-white md:text-5xl">Our Values</h2>
             <p className="text-xl text-white/70">
               The principles that guide everything we do.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             {values.map((value, index) => (
               <GlassCard key={value.title} delay={index * 0.1} className="p-6 text-center">
                 <div className="relative mb-6">
                   <value.icon className="h-12 w-12 text-[#2596be] mx-auto" />
                   <div className="absolute inset-0 bg-[#2596be] rounded-full blur-xl opacity-20"></div>
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3">{value.title}</h3>
+                <h3 className="mb-3 text-xl font-semibold text-white">{value.title}</h3>
                 <p className="text-white/70">{value.description}</p>
               </GlassCard>
             ))}
@@ -269,23 +270,23 @@ const About = () => {
       {/* Team Section */}
 
       {/* Tools Section */}
-      <section className="px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="max-w-7xl mx-auto">
+      <section className="px-4 mb-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="mb-16 text-center"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Tools We Use</h2>
+            <h2 className="mb-6 text-3xl font-bold text-white md:text-5xl">Tools We Use</h2>
             <p className="text-xl text-white/70">
               We leverage the latest technologies to deliver exceptional results.
             </p>
           </motion.div>
 
           <GlassCard className="p-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
               {tools.map((tool, index) => (
                 <motion.div
                   key={tool.name}
@@ -293,9 +294,9 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.05 }}
-                  className="text-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors duration-300"
+                  className="p-4 text-center transition-colors duration-300 rounded-lg bg-white/5 hover:bg-white/10"
                 >
-                  <div className="text-white font-medium mb-1">{tool.name}</div>
+                  <div className="mb-1 font-medium text-white">{tool.name}</div>
                   <div className="text-[#2596be] text-sm">{tool.category}</div>
                 </motion.div>
               ))}
@@ -308,19 +309,25 @@ const About = () => {
       <section className="px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <GlassCard className="p-8 md:p-12">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="mb-6 text-3xl font-bold text-white md:text-5xl">
               Want to Work With Us?
             </h2>
-            <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto">
+            <p className="max-w-2xl mx-auto mb-8 text-xl text-white/70">
               We're always excited to take on new challenges and work with amazing clients. Let's create something extraordinary together.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-[#2596be] hover:bg-[#2596be]/80 text-white font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#2596be]/25">
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+              <Link
+                to="/contact"
+                className="group relative overflow-hidden px-8 py-4 bg-[#2596be] hover:bg-[#2596be]/80 text-white font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#2596be]/25"
+              >
                 Get In Touch
-              </button>
-              <button className="px-8 py-4 backdrop-blur-sm bg-white/10 border border-white/20 text-white font-semibold rounded-full hover:bg-white/20 transition-all duration-300">
+              </Link>
+              <Link
+                to="/portfolio"
+                className="px-8 py-4 font-semibold text-white transition-all duration-300 border rounded-full backdrop-blur-sm bg-white/10 border-white/20 hover:bg-white/20"
+              >
                 View Our Work
-              </button>
+              </Link>
             </div>
           </GlassCard>
         </div>

@@ -8,21 +8,15 @@ const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('all');
 
   const filterCategories = [
-    { id: 'all', name: 'All Projects' },
-    { id: 'web', name: 'Web Design' },
-    { id: 'mobile', name: 'Mobile Apps' },
-    { id: 'branding', name: 'Branding' },
-    { id: 'ecommerce', name: 'E-commerce' }
   ];
 
   const projects = [
     {
       id: 1,
       title: 'NTS Skills Training College',
-      category: 'web',
       description: 'We designed and developed a responsive, five-page website that showcases...',
       longDescription: 'NTS Skills Training College, based in the Eastern Cape, South Africa, partnered with Secula Studios to bring their educational services online through a modern and accessible digital presence. We designed and developed a responsive, five-page website that showcases the college’s mission, academic programs, enrollment information, and contact details. The website serves as a central hub for students, staff, and prospective applicants, delivering clear information in an engaging and intuitive format.',
-      image: 'https://previews.dropbox.com/p/thumb/ACq4X_xxSgI8GZsTWbvulvMrIgnBi7DuwneU4lgEFqHC7_pGhyyHkfYkXN44_htODAE3-aelYqm7-vKj0Y3eVSolFxIWv_w3aAuBBGGeuo17DIX_cbN83JUiRVAHO5vAl6j9oNj8hv9_FsWpkPc21ckgrc3DyKVsWezb7RDgekXjqzMhUskYPDBaxoltZkEQJb2mnD8PR7lFIVWHKqlWN5dXJ_Ss89wEcpWqxkqKhr4t3KZ12ApYBg83uq6bCqCS8KxiMhNo37iwdVEh5dKpI4q739B1NDFHbQc4fz88dnkKZegDhnuFjq8P2JO09URio7k/p.png',
+      image: '/public/portfolio/nts.png',
       features: [
         'Custom 5-page layout tailored to the college’s structure',
         'Responsive design optimized for desktop, tablet, and mobile',
@@ -34,10 +28,9 @@ const Portfolio = () => {
     {
       id: 2,
       title: 'Ever Sisters Decor',
-      category: 'web',
       description: 'Ever Sisters Decor is a dynamic event styling company known for transforming spaces...',
       longDescription: 'Ever Sisters Decor is a dynamic event styling company known for transforming spaces into unforgettable experiences. With years of experience and a deep understanding of the latest trends in decoration, they offer a diverse range of services for events such as weddings, birthdays, corporate functions, and seasonal celebrations. Secula Studios worked closely with the brand to craft a visually elegant and functionally smooth online presence that captures their creative flair and service excellence.',
-      image: 'https://previews.dropbox.com/p/thumb/ACpPgLSQYLvJhATBxU_FdfpDVORqkWGGhDH9XH69vJrydjRITVJ5s0VkvAUIbJI2jEF3TOpD_O6TT2wzBiU3leEPJAqKFAmPNKvPDhodoxbffd_EIPmetMCTbxm4SHGK2nU68V4ERvMedPfS4oT6kO3BFDyZa8kmK0zE5GAmdmwJC2RzcGlUXhaPlMVsVa1Y41YQcSz1xHO9Wo-4JmTYC9kie85kHoRIuYxAhTHelo-GDdvZdSucUg5kZGgS8XqkjVE6fquoUUQw7LicUC2Cki5VcxfXR430hyW3vLuuy8Gg73ho07W6ZHH5z88A8pEVPDM/p.png',
+      image: '/public/portfolio/ever.png',
       features: [
         'Stylish, responsive design reflecting the brand’s aesthetic',
         'Photo galleries showcasing past events and décor themes',
@@ -49,10 +42,9 @@ const Portfolio = () => {
     {
       id: 3,
       title: 'LA Automotive Engineering',
-      category: 'web',
       description: 'developed a professional and technically focused website that reflects their expertise...',
       longDescription: 'LA Automotive Engineering is a cutting-edge service provider specializing in high-performance automotive solutions. Their team of highly skilled technicians brings years of experience to the table, paired with a commitment to innovation and precision. Secula Studios developed a professional and technically focused website that reflects their expertise and dedication to staying ahead of industry advancements. The platform highlights their services, team strengths, and commitment to quality engineering.',
-      image: 'https://previews.dropbox.com/p/thumb/ACoR1JOFk2d8pVvl2u4XObmc0UmJO_m6nngcEjWRIV1dhoszBYrq-ibV9z-QVp7nsMHTM2Jqnwqp7s5-jGWHf2Da_s7GKDoyR8rcwVClq1Dl2a68B3O-QR-wPA9KSfU3Nt5v29zQjs2FkJ4PmyfjeeuzW3t47XMjmgbVI1nbE9SnFrfgI8ELGGSf1nUtCFNg8rkMKz8ZFvSkGLdmxK9XS8dxVXv81ASWSQTbNR8tSCUiBFpToT2q0NhmKjGFDl5MLebLtW0ghMkJ5KYTl9pJr5mP_diDwzcHIc-Tn1s90bSTagHtjY7AIjKam_lD1WHFJKk/p.png',
+      image: '/public/portfolio/la.png',
       features: [
         'Custom 5-page layout tailored to the college’s structure',
         'Responsive design optimized for desktop, tablet, and mobile',
@@ -64,7 +56,6 @@ const Portfolio = () => {
     {
       id: 6,
       title: 'Cindy’s Designs Logo',
-      category: 'branding',
       description: 'Cindy’s Designs sought a visually expressive logo to define their brand...',
       longDescription: 'Cindy’s Designs sought a visually expressive logo to define their brand in the competitive design space. Secula Studios responded with a design process that provided multiple logo options, ensuring the selected mark aligned with the company’s creative direction and aesthetic goals.',
       image: 'https://previews.dropbox.com/p/thumb/ACoqRYWufcBYhwLA16HJpjaoux6roslBejThWBm5pFQg99q6w-ubQ8wcemyobDpbSKYuPHYEpvlh62Xon5QhupSQpW2Eblw-mT4SGg3uBRvdQtvBUFlrZAaEqEmO-_7s_dKPY7Xh6qXKegwXOnZ5zpW1HrIaff9idY0xN2HNz7_FE6zF6MTVnDKKpGD47n6RDGA-kXnMyPoqw8QhM7HUSPHiaZtYchC5DrgvOi-fokg1hXUzrd2lCrW0puNMrkvbcx4xVmMgAdQRh-ZpzaVHjEO51hXTR96wdw_QsY2qHtLc7aCJWeVs3dzAXOHBzX3VRHs/p.jpeg',
@@ -77,7 +68,6 @@ const Portfolio = () => {
     {
       id: 7,
       title: 'Gentle Rose',
-      category: 'branding',
       description: 'Secula Studios, a digital design and development agency, needed a logo that captured their innovative spirit...',
       longDescription: 'Gentle Rose, a luxury perfume brand, needed a compelling brand identity to appeal to a sophisticated audience. We crafted a refined logo and realistic 3D product mockups that embodied elegance and timelessness. The visual assets helped them enhance their promotional and packaging design across channels.',
       image: 'https://previews.dropbox.com/p/thumb/ACoqRYWufcBYhwLA16HJpjaoux6roslBejThWBm5pFQg99q6w-ubQ8wcemyobDpbSKYuPHYEpvlh62Xon5QhupSQpW2Eblw-mT4SGg3uBRvdQtvBUFlrZAaEqEmO-_7s_dKPY7Xh6qXKegwXOnZ5zpW1HrIaff9idY0xN2HNz7_FE6zF6MTVnDKKpGD47n6RDGA-kXnMyPoqw8QhM7HUSPHiaZtYchC5DrgvOi-fokg1hXUzrd2lCrW0puNMrkvbcx4xVmMgAdQRh-ZpzaVHjEO51hXTR96wdw_QsY2qHtLc7aCJWeVs3dzAXOHBzX3VRHs/p.jpeg',
@@ -313,7 +303,7 @@ const Portfolio = () => {
             <p className="max-w-2xl mx-auto mb-8 text-xl text-white/70">
               Let's create something amazing together. Contact us to discuss your project and see how we can bring your vision to life.
             </p>
-            <button className="px-8 py-4 bg-[#2596be] hover:bg-[#2596be]/80 text-white font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#2596be]/25">
+            <button className=" group relative overflow-hidden px-8 py-4 bg-[#2596be] hover:bg-[#2596be]/80 text-white font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#2596be]/25">
               Start Your Project
             </button>
           </GlassCard>

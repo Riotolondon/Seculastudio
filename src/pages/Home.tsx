@@ -240,8 +240,8 @@ const Home = () => {
               Let's discuss your project and create something amazing together. Get started with a free consultation.
             </p>
             <Link
-              to="/contact"
-              className="inline-flex items-center space-x-2 px-8 py-4 bg-[#2596be] hover:bg-[#2596be]/80 text-white font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#2596be]/25"
+              to="/Contact"
+              className="inline-flex group relative overflow-hidden space-x-2 px-8 py-4 bg-[#2596be] hover:bg-[#2596be]/80 text-white font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#2596be]/25"
             >
               <span>Schedule Free Consultation</span>
               <ArrowRight className="w-5 h-5" />
