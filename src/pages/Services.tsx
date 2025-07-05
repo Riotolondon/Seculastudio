@@ -163,27 +163,7 @@ const Services = () => {
       </section>
 
       {/* Filter Tabs */}
-      <section className="px-4 mb-12 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <GlassCard className="p-2">
-            <div className="flex flex-wrap justify-center gap-2">
-              {serviceCategories.map((category) => (
-                <button
-                  key={category.id}
-                  onClick={() => setActiveFilter(category.id)}
-                  className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
-                    activeFilter === category.id
-                      ? 'bg-[#2596be] text-white shadow-lg'
-                      : 'text-white/70 hover:text-white hover:bg-white/10'
-                  }`}
-                >
-                  {category.name}
-                </button>
-              ))}
-            </div>
-          </GlassCard>
-        </div>
-      </section>
+
 
       {/* Services Grid */}
       <section className="px-4 sm:px-6 lg:px-8">

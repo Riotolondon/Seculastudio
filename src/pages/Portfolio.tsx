@@ -153,28 +153,7 @@ const Portfolio = () => {
       </section>
 
       {/* Filter Tabs */}
-      <section className="px-4 mb-12 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <GlassCard className="p-2">
-            <div className="flex flex-wrap justify-center gap-2">
-              {filterCategories.map((category) => (
-                <button
-                  key={category.id}
-                  onClick={() => setActiveFilter(category.id)}
-                  className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center space-x-2 ${
-                    activeFilter === category.id
-                      ? 'bg-[#2596be] text-white shadow-lg'
-                      : 'text-white/70 hover:text-white hover:bg-white/10'
-                  }`}
-                >
-                  <Filter className="w-4 h-4" />
-                  <span>{category.name}</span>
-                </button>
-              ))}
-            </div>
-          </GlassCard>
-        </div>
-      </section>
+      
 
       {/* Projects Grid */}
       <section className="px-4 sm:px-6 lg:px-8">
@@ -206,7 +185,6 @@ const Portfolio = () => {
                     <div className="flex items-center justify-between mb-3">
                       <h3 className="text-xl font-semibold text-white">{project.title}</h3>
                       <span className="px-3 py-1 bg-[#2596be]/20 text-[#2596be] text-xs font-medium rounded-full">
-                        {filterCategories.find(cat => cat.id === project.category)?.name}
                       </span>
                     </div>
                     <p className="mb-4 text-white/70">{project.description}</p>
@@ -257,7 +235,6 @@ const Portfolio = () => {
                   <div className="flex items-center justify-between mb-4">
                     <h2 className="text-3xl font-bold text-white">{selectedProject.title}</h2>
                     <span className="px-4 py-2 bg-[#2596be]/20 text-[#2596be] font-medium rounded-full">
-                      {filterCategories.find(cat => cat.id === selectedProject.category)?.name}
                     </span>
                   </div>
                   
@@ -280,7 +257,7 @@ const Portfolio = () => {
                   <div className="flex space-x-4">
                     <a
                       href={selectedProject.liveUrl}
-                      className="flex items-center space-x-2 px-6 py-3 bg-[#2596be] hover:bg-[#2596be]/80 text-white font-semibold rounded-lg transition-colors duration-300"
+                      className="flex items-center relative overflow-hidden space-x-2 px-6 py-3 bg-[#2596be] hover:bg-[#2596be]/80 text-white font-semibold rounded-lg transition-colors duration-300"
                     >
                       <ExternalLink className="w-5 h-5" />
                       <span>View Live</span>
