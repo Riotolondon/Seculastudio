@@ -41,20 +41,20 @@ const Home = () => {
 
   const testimonials = [
     {
-      name: 'Sarah Johnson',
-      role: 'CEO, TechCorp',
+      name: 'Caroline',
+      role: 'CEO, Star Detergents',
       content: 'Secula Studios transformed our digital presence completely. Their attention to detail and innovative approach exceeded our expectations.',
       rating: 5
     },
     {
-      name: 'Michael Chen',
-      role: 'Founder, StartupX',
+      name: 'Nelson',
+      role: 'Chairman, NTS Skills Academy',
       content: 'Working with Secula was a game-changer. They delivered a stunning website that increased our conversion rate by 300%.',
       rating: 5
     },
     {
-      name: 'Emily Rodriguez',
-      role: 'Marketing Director, GrowthCo',
+      name: 'Leslie',
+      role: 'Marketing Director, Carmalot Designs',
       content: 'The team at Secula Studios is incredibly talented. They understood our vision and brought it to life beautifully.',
       rating: 5
     }
