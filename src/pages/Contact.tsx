@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
 import GlassCard from '../components/GlassCard';
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = 'https://qgpfulkxaogxunzbexha.supabase.co';
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFncGZ1bGt4YW9neHVuemJleGhhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE5MjY4NDksImV4cCI6MjA2NzUwMjg0OX0.j8fuDzPYD8EvWIKRFGIpRljz4GumszVtkBlYbHDNGO8';
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -14,11 +19,23 @@ const Contact = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
+    const { error } = await supabase.from('contacts').insert([formData]);
+    if (!error) {
+      setIsSubmitted(true);
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        service: '',
+        budget: '',
+        message: ''
+      });
+      setTimeout(() => setIsSubmitted(false), 3000);
+    } else {
+      alert('There was an error submitting the form. Please try again.');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -85,17 +102,17 @@ const Contact = () => {
       className="pt-24 pb-20"
     >
       {/* Hero Section */}
-      <section className="px-4 sm:px-6 lg:px-8 mb-20">
+      <section className="px-4 mb-20 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="mb-6 text-4xl font-bold text-white md:text-6xl">
               Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2596be] to-blue-400">Connect</span>
             </h1>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto">
+            <p className="max-w-3xl mx-auto text-xl text-white/70">
               Ready to bring your vision to life? We'd love to hear about your project and explore how we can help you achieve your goals.
             </p>
           </motion.div>
@@ -103,18 +120,18 @@ const Contact = () => {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <section className="px-4 mb-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {contactInfo.map((info, index) => (
               <GlassCard key={info.title} delay={index * 0.1} className="p-6 text-center">
                 <div className="relative mb-4">
                   <info.icon className="h-8 w-8 text-[#2596be] mx-auto" />
                   <div className="absolute inset-0 bg-[#2596be] rounded-full blur-lg opacity-20"></div>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{info.title}</h3>
+                <h3 className="mb-2 text-lg font-semibold text-white">{info.title}</h3>
                 <div className="text-[#2596be] font-medium mb-1">{info.details}</div>
-                <p className="text-white/60 text-sm">{info.description}</p>
+                <p className="text-sm text-white/60">{info.description}</p>
               </GlassCard>
             ))}
           </div>
@@ -123,22 +140,22 @@ const Contact = () => {
 
       {/* Main Contact Section */}
       <section className="px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
             {/* Contact Form */}
             <div className="lg:col-span-2">
               <GlassCard className="p-8">
                 <div className="mb-8">
-                  <h2 className="text-3xl font-bold text-white mb-4">Get Started Today</h2>
+                  <h2 className="mb-4 text-3xl font-bold text-white">Get Started Today</h2>
                   <p className="text-white/70">
                     Fill out the form below and we'll get back to you within 24 hours to discuss your project.
                   </p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div>
-                      <label htmlFor="name" className="block text-white font-medium mb-2">
+                      <label htmlFor="name" className="block mb-2 font-medium text-white">
                         Full Name *
                       </label>
                       <input
@@ -153,7 +170,7 @@ const Contact = () => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-white font-medium mb-2">
+                      <label htmlFor="email" className="block mb-2 font-medium text-white">
                         Email Address *
                       </label>
                       <input
@@ -169,9 +186,9 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div>
-                      <label htmlFor="company" className="block text-white font-medium mb-2">
+                      <label htmlFor="company" className="block mb-2 font-medium text-white">
                         Company
                       </label>
                       <input
@@ -185,7 +202,7 @@ const Contact = () => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="service" className="block text-white font-medium mb-2">
+                      <label htmlFor="service" className="block mb-2 font-medium text-white">
                         Service Needed
                       </label>
                       <select
@@ -206,7 +223,7 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="budget" className="block text-white font-medium mb-2">
+                    <label htmlFor="budget" className="block mb-2 font-medium text-white">
                       Project Budget
                     </label>
                     <select
@@ -226,7 +243,7 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-white font-medium mb-2">
+                    <label htmlFor="message" className="block mb-2 font-medium text-white">
                       Project Details *
                     </label>
                     <textarea
@@ -245,16 +262,16 @@ const Contact = () => {
                     type="submit"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full py-4 bg-[#2596be] hover:bg-[#2596be]/80 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-[#2596be]/25 flex items-center justify-center space-x-2"
+                    className="w-full relative overflow-hidden py-4 bg-[#2596be] hover:bg-[#2596be]/80 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-[#2596be]/25 flex items-center justify-center space-x-2"
                   >
                     {isSubmitted ? (
                       <>
-                        <CheckCircle className="h-5 w-5" />
+                        <CheckCircle className="w-5 h-5" />
                         <span>Message Sent!</span>
                       </>
                     ) : (
                       <>
-                        <Send className="h-5 w-5" />
+                        <Send className="w-5 h-5" />
                         <span>Send Message</span>
                       </>
                     )}
@@ -267,7 +284,7 @@ const Contact = () => {
             <div className="space-y-8">
               {/* Quick Info */}
               <GlassCard className="p-6">
-                <h3 className="text-xl font-semibold text-white mb-4">Why Choose Us?</h3>
+                <h3 className="mb-4 text-xl font-semibold text-white">Why Choose Us?</h3>
                 <ul className="space-y-3">
                   {[
                     '5+ years of experience',
@@ -284,7 +301,7 @@ const Contact = () => {
 
               {/* Process */}
               <GlassCard className="p-6">
-                <h3 className="text-xl font-semibold text-white mb-4">Our Process</h3>
+                <h3 className="mb-4 text-xl font-semibold text-white">Our Process</h3>
                 <div className="space-y-4">
                   {[
                     { step: '1', title: 'Initial Consultation', desc: 'We discuss your project requirements and goals.' },
@@ -297,8 +314,8 @@ const Contact = () => {
                         {phase.step}
                       </div>
                       <div>
-                        <div className="text-white font-medium">{phase.title}</div>
-                        <div className="text-white/60 text-sm">{phase.desc}</div>
+                        <div className="font-medium text-white">{phase.title}</div>
+                        <div className="text-sm text-white/60">{phase.desc}</div>
                       </div>
                     </div>
                   ))}
@@ -312,13 +329,13 @@ const Contact = () => {
       </section>
 
       {/* Map Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section className="px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
           <GlassCard className="overflow-hidden">
             <div className="h-64 bg-gradient-to-br from-[#2596be]/20 to-blue-600/20 flex items-center justify-center">
               <div className="text-center">
                 <MapPin className="h-12 w-12 text-[#2596be] mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-white mb-2">Visit Our Office</h3>
+                <h3 className="mb-2 text-xl font-semibold text-white">Visit Our Office</h3>
                 <p className="text-white/70">7 Ritson Road, </p>
                 <p className="text-white/70">Berea Durban, 4001</p>
               </div>

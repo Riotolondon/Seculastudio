@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ExternalLink, Github, Filter } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import GlassCard from '../components/GlassCard';
 
 const Portfolio = () => {
@@ -16,7 +17,7 @@ const Portfolio = () => {
       title: 'NTS Skills Training College',
       description: 'We designed and developed a responsive, five-page website that showcases...',
       longDescription: 'NTS Skills Training College, based in the Eastern Cape, South Africa, partnered with Secula Studios to bring their educational services online through a modern and accessible digital presence. We designed and developed a responsive, five-page website that showcases the college’s mission, academic programs, enrollment information, and contact details. The website serves as a central hub for students, staff, and prospective applicants, delivering clear information in an engaging and intuitive format.',
-      image: '/public/portfolio/nts.png',
+      image: 'https://drive.google.com/file/d/1nQWLG3oTVtkS929gEf0xvUGE9_tWX5dU/view?usp=sharing',
       features: [
         'Custom 5-page layout tailored to the college’s structure',
         'Responsive design optimized for desktop, tablet, and mobile',
@@ -30,7 +31,7 @@ const Portfolio = () => {
       title: 'Ever Sisters Decor',
       description: 'Ever Sisters Decor is a dynamic event styling company known for transforming spaces...',
       longDescription: 'Ever Sisters Decor is a dynamic event styling company known for transforming spaces into unforgettable experiences. With years of experience and a deep understanding of the latest trends in decoration, they offer a diverse range of services for events such as weddings, birthdays, corporate functions, and seasonal celebrations. Secula Studios worked closely with the brand to craft a visually elegant and functionally smooth online presence that captures their creative flair and service excellence.',
-      image: '/public/portfolio/ever.png',
+      image: 'https://www.dropbox.com/scl/fi/2n497fmwzpvw0orfno6ms/Screenshot-2025-06-09-205315.png?rlkey=b1sfr64ph4oo81f7quen3j57v&st=epw98nlw&dl=0',
       features: [
         'Stylish, responsive design reflecting the brand’s aesthetic',
         'Photo galleries showcasing past events and décor themes',
@@ -280,9 +281,12 @@ const Portfolio = () => {
             <p className="max-w-2xl mx-auto mb-8 text-xl text-white/70">
               Let's create something amazing together. Contact us to discuss your project and see how we can bring your vision to life.
             </p>
-            <button className=" group relative overflow-hidden px-8 py-4 bg-[#2596be] hover:bg-[#2596be]/80 text-white font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#2596be]/25">
+            <Link
+              to="/contact"
+              className="group relative overflow-hidden px-8 py-4 bg-[#2596be] hover:bg-[#2596be]/80 text-white font-semibold rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#2596be]/25"
+            >
               Start Your Project
-            </button>
+            </Link>
           </GlassCard>
         </div>
       </section>
